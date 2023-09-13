@@ -57,7 +57,14 @@
                 "settings": {
                     "bundleName": "sap.btp.pdfupload.i18n.i18n"
                 }
-            }
+            },
+            "invoice": {
+                "type": "sap.ui.model.json.JSONModel"
+              },
+              "viewModel": {
+                "type": "sap.ui.model.json.JSONModel"
+              }
+
         },
         "resources": {
             "css": [

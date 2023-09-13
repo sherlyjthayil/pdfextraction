@@ -26,3 +26,6 @@ server:
       configuration:
         component: sap.btp.pdfupload
         ui5Theme: sap_horizon
+    - name: Run QUnit Tests
+      afterMiddleware: fiori-tools-preview
+      run: npm test

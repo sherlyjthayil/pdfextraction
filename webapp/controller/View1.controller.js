@@ -2,44 +2,48 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "../model/formatter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, MessageBox, MessageToast) {
+    function (Controller, JSONModel, MessageBox, MessageToast,formatter) {
         "use strict";
 
         return Controller.extend("sap.btp.pdfupload.controller.View1", {
-            onInit: function () {
-                var oModel = new JSONModel();
-                this.getView().setModel(oModel, "invoice");
+            formatter: formatter,
+          onInit: function(){
+
+          },
+            onAfterRendering: function(){
+                
+                
                 var oModel2 = {
                     editable: false,
                     visibleEnabled:false,
                     refreshEnabled: false,
-                    uploadEnabled: false
+                    uploadEnabled: false,
+                    value:"USD"
                 }
-                this.getView().setModel(new JSONModel(oModel2), "viewModel")
+                
+                this.getView().getModel("viewModel").setData(oModel2);
             },
             onFileChange: function (oEvent) {
                 var oFileUploader = this.byId("fileUploader");
                 if (oFileUploader.getValue()) {
-                    (this.getView().getModel("viewModel")).setProperty("/uploadEnabled", true)
+                    (this.getView().getModel("viewModel")).setProperty("/uploadEnabled", true);
                 }
             },
             
-            onUploadChange: function (oEvent) {
-                if (oEvent.getParameter("files") && oEvent.getParameter("files")[0]) {
-                   // this.addHeaderParameters();
-                }
-            },
+          
            
             _resetData: function() {
                 this.getView().getModel("invoice").setData({})
                 this._jobId = "";
             },
             onUploadFile: async function () {
+                var sVal= this.getView().getModel("invoice");
                 var sresText=this.getView().getModel("i18n").getResourceBundle().getText("confirmText");
                 if (this._jobId) {
                     MessageBox.confirm(sresText, {
