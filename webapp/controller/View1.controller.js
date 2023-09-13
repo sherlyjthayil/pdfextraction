@@ -42,7 +42,7 @@ sap.ui.define([
                 this.getView().getModel("invoice").setData({})
                 this._jobId = "";
                 //
-                
+                //
             },
             onUploadFile: async function () {
                 var sVal= this.getView().getModel("invoice");
