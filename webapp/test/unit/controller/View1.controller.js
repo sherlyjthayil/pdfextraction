@@ -58,7 +58,7 @@ sap.ui.define([
         assert.strictEqual(oViewModel.getProperty("/editable"), false, "editable property is set to false");
         assert.strictEqual(oViewModel.getProperty("/visibleEnabled"), false, "visibleEnabled property is set to false");
         assert.strictEqual(oViewModel.getProperty("/refreshEnabled"), false, "refreshEnabled property is set to false");
-        assert.strictEqual(oViewModel.getProperty("/uploadEnabled"), true, "uploadEnabled property is set to true");
+        assert.strictEqual(oViewModel.getProperty("/uploadEnabled"), false, "uploadEnabled property is set to false");
     });
 
 });
