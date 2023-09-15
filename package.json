@@ -14,7 +14,11 @@
         "@sap/ux-ui5-tooling": "1",
         "@ui5/cli": "^3.6.0",
         "mbt": "^1.2.18",
-        "ui5-task-zipper": "^0.5.0"
+        "ui5-task-zipper": "^0.5.0",
+        "karma": "^5.0.4",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-coverage": "^2.0.2",
+        "karma-ui5": "^2.1.0"
     },
     "scripts": {
         "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#sapbtppdfupload-display\"",
@@ -28,7 +32,9 @@
         "int-tests": "fiori run --open 'test/integration/opaTests.qunit.html'",
         "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateCachebusterInfo",
         "build:mta": "rimraf resources mta_archives && mbt build",
-        "undeploy": "cf undeploy sapbtppdfupload --delete-services --delete-service-keys --delete-service-brokers"
+        "undeploy": "cf undeploy sapbtppdfupload --delete-services --delete-service-keys --delete-service-brokers",
+        "test": "npm run karma-ci",
+        "karma-ci": "karma start karma-ci.conf.js"
     },
     "sapuxLayer": "CUSTOMER_BASE",
     "ui5": {
