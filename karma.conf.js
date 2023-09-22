@@ -55,13 +55,13 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://www.npmjs.com/search?q=keywords:karma-launcher
-  //  browsers: ['Chrome'],
-    browsers: ['HeadlessChrome'],
+    browsers: ['Chrome'],
+   // browsers: ['HeadlessChrome'],
 customLaunchers: {
   HeadlessChrome: {
     base: 'ChromeHeadless',
     flags: ['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
-    binary: '/path/to/chrome' // Update this with the actual path to your Chrome binary.
+    binary: 'C:\Users\SF385TQ\AppData\Local\Google\Chrome\Application\chrome.exe' // Update this with the actual path to your Chrome binary.
   }
 },
 
