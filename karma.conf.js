@@ -10,11 +10,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://www.npmjs.com/search?q=keywords:karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['qunit'],
 
 
     // list of files / patterns to load in the browser
     files: [
+      'test/unit/unitTests.qunit.html'
     ],
 
 
@@ -54,8 +55,15 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://www.npmjs.com/search?q=keywords:karma-launcher
-    browsers: ['Chrome'],
-
+  //  browsers: ['Chrome'],
+    browsers: ['HeadlessChrome'],
+customLaunchers: {
+  HeadlessChrome: {
+    base: 'ChromeHeadless',
+    flags: ['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
+    binary: '/path/to/chrome' // Update this with the actual path to your Chrome binary.
+  }
+},
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
