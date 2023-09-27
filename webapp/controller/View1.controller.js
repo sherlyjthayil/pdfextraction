@@ -19,7 +19,7 @@ sap.ui.define([
             onAfterRendering: function(){
                 
                 //testing job
-                //testing notification
+                //testing alert notification
                 var oModel2 = {
                     editable: false,
                     visibleEnabled:false,
