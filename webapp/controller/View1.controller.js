@@ -18,8 +18,7 @@ sap.ui.define([
           },
             onAfterRendering: function(){
                 
-                //testing job
-                //testing alert notification
+                //testing cicd job
                 var oModel2 = {
                     editable: false,
                     visibleEnabled:false,
